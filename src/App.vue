@@ -1,28 +1,37 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="container">
+      <div class="header" style="margin: 40px 0 20px 0">
+        <div class="row">
+          <div class="form-group">
+            <input type="number" v-model="sum" class="form-control" placeholder="Amount" />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <table class="table table-striped">
+          <tr>
+            <th>Shares</th>
+            <th>Receives</th>
+          </tr>
+          <tr v-for="index in 9" :key="index">
+            <td>{{ index }}</td>
+            <td>{{ sum / 10 * index }}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'app',
-  components: {
-    HelloWorld
+  name: "app",
+  data: () => {
+    return {
+      sum: 0
+    };
   }
-}
+};
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
