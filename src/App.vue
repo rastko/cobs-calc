@@ -1,28 +1,32 @@
 <template lang="pug">
-#app
-  .container
-    .header(style="margin: 40px 0 20px 0")
-      .row
-        .form-group
-          input.form-control(type="number", v-model="sum", placeholder="Amount")
+div
+  layout
+    userInput(slot="header" @input="calculate")
 
-      .row
-        table.table.table-striped
-          tr
-            th Shares
-            th Receives
-          tr(v-for="index in 9", :key="index")
-            td {{ index }}
-            td {{ sum / 10 * index }}
+    table.table-striped.table(slot="body")
+      results(v-for="index in 9", :key="index", :value="index")
+
 </template>
 
 <script>
+import layout from "./layout.vue";
+import userInput from "./user-input.vue";
+import results from "./results.vue";
+
 export default {
   name: "app",
-  data: () => {
-    return {
-      sum: 0,
-    };
+  components: {
+    layout,
+    userInput,
+    results,
+  },
+  data: () => ({
+    sum: 0,
+  }),
+  methods: {
+    calculate(val) {
+      this.sum = val;
+    },
   },
 };
 </script>
