@@ -1,13 +1,15 @@
 {
+  "homepage": "http://bitlogic-software.com/cobs-calc/",
   "name": "cobs-calc",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
-    "test": "vue-cli-service test:unit"
+    "test": "vue-cli-service test:unit",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "bootstrap": "^4.3.1",
@@ -27,6 +29,7 @@
     "eslint": "^6.8.0",
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-vue": "^6.2.2",
+    "gh-pages": "^2.2.0",
     "jest": "^25.3.0",
     "prettier": "^1.19.1",
     "pug": "^2.0.4",
