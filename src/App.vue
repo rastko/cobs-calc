@@ -23,7 +23,7 @@ div
 import { mapActions, mapState, mapGetters } from "vuex";
 import layout from "./layout";
 import userInput from "./components/user-input";
-import resultsRow from "./components/results";
+import resultsRow from "./components/results-row";
 
 export default {
   name: "app",
