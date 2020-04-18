@@ -1,32 +1,38 @@
 <template lang="pug">
+
 div
   layout
-    userInput(slot="header" @input="calculate")
+    userInput(slot="header" @input="setSum")
 
     table.table-striped.table(slot="body")
-      results(v-for="index in 9", :key="index", :value="index")
+      results(
+        v-for="(value, index) in getValues",
+        :key="index",
+        :index="index+1"
+        :value="value",
+      )
 
 </template>
 
 <script>
-import layout from "./layout.vue";
-import userInput from "./user-input.vue";
-import results from "./results.vue";
+import { mapActions, mapState, mapGetters } from 'vuex';
+import layout from './layout.vue';
+import userInput from './user-input.vue';
+import results from './results.vue';
 
 export default {
-  name: "app",
+  name: 'app',
   components: {
     layout,
     userInput,
     results,
   },
-  data: () => ({
-    sum: 0,
-  }),
   methods: {
-    calculate(val) {
-      this.sum = val;
-    },
+    ...mapActions(['setSum']),
+  },
+  computed: {
+    ...mapState(['sum']),
+    ...mapGetters(['getValues']),
   },
 };
 </script>

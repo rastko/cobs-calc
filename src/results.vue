@@ -1,12 +1,12 @@
 <template lang="pug">
   tr
+    td {{ index }}
     td {{ value }}
-    td {{ sum / 10 * value }}
 </template>
 
 <script>
 export default {
-  name: "results",
-  props: ["value"],
+  name: 'results',
+  props: ['index', 'value'],
 };
 </script>
