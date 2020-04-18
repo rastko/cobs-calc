@@ -2,10 +2,15 @@
 
 div
   layout
-    userInput(slot="header" @input="setSum")
+    .col-md-6.mb-3(slot="header")
+      userInput(@input="setSum")
 
     table.table-striped.table(slot="body")
-      results(
+      tr
+        th Shares
+        th Receives
+      results-row(
+        v-if="sum > 0"
         v-for="(value, index) in getValues",
         :key="index",
         :index="index+1"
@@ -15,24 +20,24 @@ div
 </template>
 
 <script>
-import { mapActions, mapState, mapGetters } from 'vuex';
-import layout from './layout.vue';
-import userInput from './user-input.vue';
-import results from './results.vue';
+import { mapActions, mapState, mapGetters } from "vuex";
+import layout from "./layout";
+import userInput from "./components/user-input";
+import resultsRow from "./components/results";
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
     layout,
     userInput,
-    results,
+    resultsRow
   },
   methods: {
-    ...mapActions(['setSum']),
+    ...mapActions(["setSum"])
   },
   computed: {
-    ...mapState(['sum']),
-    ...mapGetters(['getValues']),
-  },
+    ...mapState(["sum"]),
+    ...mapGetters(["getValues"])
+  }
 };
 </script>

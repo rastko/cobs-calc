@@ -1,21 +1,21 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
+import Vue from "vue";
+import Vuex from "vuex";
 
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
   state: {
-    sum: 0,
+    sum: 0
   },
   actions: {
     setSum({ commit }, sum) {
-      commit('setSum', sum);
-    },
+      commit("setSum", sum);
+    }
   },
   mutations: {
     setSum(state, amount) {
       state.sum = amount;
-    },
+    }
   },
   getters: {
     getValues(state) {
@@ -26,8 +26,8 @@ const store = new Vuex.Store({
         values.push(parseInt((sum / 10) * i, 10));
       }
       return values;
-    },
-  },
+    }
+  }
 });
 
 export default store;

@@ -1,7 +1,7 @@
 <template lang="pug">
   #app
     .container
-      .header
+      .header.mt-5.mb-3
         slot(name="header")
       .body
         slot(name="body")
@@ -11,6 +11,6 @@
 
 <script>
 export default {
-  name: 'layout',
+  name: "layout"
 };
 </script>
